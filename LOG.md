@@ -74,12 +74,50 @@ you noticed it.
 
 ### CC-01 : "The search suggestions are behind everything"
 
-**Reproduced: I searched**
+**Reproduced:** I searched
 
-**Cause: Z-index of the parent class of the suggestion box was lower than the categories section**
+**Cause:** Z-index of the parent class of the suggestion box was lower than the categories section
 
-**Fix: changed the Z-index of .search-wrap from 1 to 50**
+**Fix:** changed the Z-index of .search-wrap from 1 to 50
 
-**Checked: the suggestion box is now displayed correctly above the categories section**
+**Checked:** the suggestion box is now displayed correctly above the categories section
 
-**Time: 15 minutes**
+**Time:** 15 minutes
+
+### CC-02 : "Can't read anything in dark mode"
+
+**Reproduced:** Switched to dark mode 
+
+**Cause:** The dish name and prices color was not defined so they were using the default color
+
+**Fix:** Applied the theme-aware --ink color so the dish names and prices automatically use the appropriate color in light and dark mode
+
+**Checked:** the text is now visible in dark mode
+
+**Time:** 10 mins
+
+### CC-03: "The menu is wider than my phone"
+
+**Reproduced:** change the device to smallest mobile screen (320x558) and the menu was overflowing 
+
+**Cause:** Dish-card was not able to shrink below its content's intrinsic width
+
+**Fix:** Added min-width: 0 to allow the dish card to shrink properly 
+
+**Checked:** Verified that the menu now fits on smaller screens
+
+**Time:** 8 mins
+
+### CC-04: "The buttons don't work on my tablet"
+
+**Reproduced:** change the device to ipad mini and the add to card and favorite button was not working
+
+**Cause:** .dish-card::after and .img-wrap::after were overlapping on the buttons 
+
+**Fix:** Added pointer-events: none
+
+**Checked:** Verified that the buttons work properly 
+
+**Time:** 8 mins 
+
+
