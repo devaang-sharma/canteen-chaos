@@ -120,4 +120,38 @@ you noticed it.
 
 **Time:** 8 mins 
 
+### CC-06: "I ordered more than they had"
 
+**Reproduced:** I checked the stock in the counter section, and the web app allowed me to add more items to the cart and place an order even after exceeding the available stock
+
+**Cause:** there was no stock validation on either the frontend or backend
+
+**Fix:** added a stock check in frontend state.js and backend validation.js
+
+**Checked:** Verified that you now cannot order more than the stock
+
+**Time:** 40-60 mins
+
+### CC-07: "Cancelling makes it worse"
+
+**Reproduced:** I cancelled the order after ordering the counter didn't restock the items
+
+**Cause:** in restock function, dish.stock was getting subtracted by line.qty
+
+**Fix:** dish.stock - line.qty changed to dish.stock + line.qty
+
+**Checked:** Verified that cancelling order restock the items
+
+**Time:** 30 mins
+
+### CC-08: "An old coupon still works"
+
+**Reproduced:** FRESHERS24 applied
+
+**Cause:** No expiration check while billing
+
+**Fix:** added a new Date(coupon.expiresAt) <= now condition
+
+**Checked:** FRESHERS24 doesn't work now
+
+**Time:** 25 min

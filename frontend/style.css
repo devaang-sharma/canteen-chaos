@@ -288,7 +288,6 @@ h1, h2, h3 { margin: 0; }
   cursor: pointer;
   font-size: 15px;
   line-height: 1;
-  z-index: 10;
 }
 
 .fav-btn.on { color: var(--amber); }
